@@ -52,7 +52,7 @@ const renderNotes2 = () => {
             <p id='descrip'> Find the beats per minute, key signature, and mode of your favorite songs. Choose your preferences, upload a song, and get instant results!</p>
           </div>
             <div className='button-container'>
-              <button id='startHere' onClick={handleButtonClick}><b>Start Here</b></button>
+              <button id='start-here' onClick={handleButtonClick}><b>Start Here</b></button>
               {renderNotes2()}
               <hr id='horz-line'></hr>
             </div>

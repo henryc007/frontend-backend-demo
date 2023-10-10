@@ -184,7 +184,7 @@ const Form = () => {
           />
           Mode (Major or Minor key)
         </label>
-        <div {...getRootProps()} id="audioDrop">
+        <div {...getRootProps()} id="audio-drop">
           <input {...getInputProps()} />
           <span className="material-symbols-outlined" id="dropbox-logo">
             place_item
@@ -199,7 +199,7 @@ const Form = () => {
               : audioFile.name}
           </div>
         )}
-        <button id='formSubmit' type="submit">Submit</button>
+        <button id='form-submit' type="submit">Submit</button>
     </form>
     {loading && (
         <div className="loading-spinner">
