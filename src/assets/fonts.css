@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+@font-face {
+    font-family: 'Royal Acid';
+    src: url('./fonts/Royalacid_o.ttf') format('truetype');
+  }
+
+@font-face {
+font-family: 'Boogie Boys';
+src: url('./fonts/BoogieBoysRegular-L36y3.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Flix';
+  src: url('./fonts/Flix-Normal.ttf') format('truetype');
+  }

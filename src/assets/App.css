@@ -1,0 +1,41 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap'); */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap'); */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap'); */
+
+@import './fonts.css';
+
+
+html {
+  background: linear-gradient(to left, #22A699 60%, #F2BE22 85%, #F29727 95%, #F24C3D 100%);
+}
+
+.ui-container {
+  position: sticky;
+  min-height: 530px;
+  height: 60vh;
+  background-color: #EADACB;
+  border-radius: 20px;
+  margin-left: 4px;
+  margin-right: 4px;
+  padding: 1px;
+}
+
+#app-header {
+  margin-bottom: 0.3em;
+  margin-top: 0.3em;
+  margin-left: 10px;
+  font-family: 'Royal Acid';
+  font-size: 40px;
+  color: black;
+}
+
+#header-image {
+  display: inline;
+  position: relative;
+  margin-left: -5px;
+  height: 90px;
+  width: 220px;
+  white-space: nowrap;
+}

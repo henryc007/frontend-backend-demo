@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+.results-page-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  min-width: 1000px;
+  min-height: 60vh;
+  white-space: nowrap;
+}
+
+.results-container {
+  align-self: center;
+  padding-bottom: 50px;
+}
+.result-item {
+  font-family: 'Bree Serif', serif;
+  color: black;
+  /* font-size: 50px; */
+  white-space: nowrap;
+}
+
+#category {
+  font-weight: bold;
+  font-size: 50px;
+}
+
+#value {
+  font-size: 35px;
+}
+
+.result-button-container {
+  position: absolute;
+  bottom: 40px;
+  right: 20px;
+}
+.home-link {
+  font-size: 24px;
+  padding: 15px 25px;
+  background-color: #22A699;
+  bottom: 0;
+  right: 0;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  font-family: 'Roboto';
+}
+
+.home-link:hover {
+  background-color: #F2BE22;
+  color: black;
+}
+
+.metadata-container {
+  margin-right: 10px;
+  margin-left: 10px;
+  align-self: center;
+  font-family: 'Bree Serif', serif;
+  color: black;
+}
+
+.regular-text {
+  font-size: 17px; /* Adjust the font size as needed */
+}
+
+/* Larger text size class */
+.larger-text {
+  font-size: 30px; /* Adjust the font size as needed */
+}
+
+#album-art {
+  margin-top: 5px;
+  width: 350px;
+  height: 350px;
+  border-radius: 15px;
+}
+
+.vertical-divider {
+  width: 3px;
+  background: linear-gradient(to bottom, black 0%, #3a3434 30%, transparent 100%);
+  margin-left: 10px;
+  margin-right: 10px;
+  flex-wrap: nowrap;
+}
+
+.blacked-out-page {
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999; /* Ensure it's above other content */
+}
+
+.blacked-out-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.7;
+}
+
+.blacked-out-text {
+  font-family: 'Pacifico', cursive;
+  font-size: 42px;
+  z-index: 1; 
+  color: white; 
+}

@@ -1,0 +1,53 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Firebase directories
+.firebase/
+firestore.rules
+firestore.indexes.json
+storage.rules
+
+# Firebase SDK config files
+firebase.json
+firebase-debug.log
+
+# Firebase Hosting cache
+.firebase/hosting.rules
+
+# Firebase local configuration
+.firebaserc
+firebase-debug.log
+
+# Project package files
+package-lock.json
+package.json
+
+#Misc files and folders
+.github
+.eslintrc.cjs
+index.html
+vite.config.js
+vite.svg
+
