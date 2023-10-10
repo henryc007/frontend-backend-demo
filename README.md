@@ -12,6 +12,7 @@ Responsive design for mobile and desktop.
 - React
 - Vite
 - Essentia.js - A JavaScript library for audio analysis.
+- jsmediatags - A JavaScript library for extracting song metadata (title, artist, album name, etc)
 
 ## Usage
 1. Drag and drop an audio file (e.g., MP3 or WAV) onto the app interface.
@@ -23,8 +24,3 @@ Responsive design for mobile and desktop.
     
 3. You can upload multiple songs and analyze them one by one.
 
-## Dependencies
-This project relies on Essentia.js for audio analysis. It's important to note that Essentia.js requires a modern web browser that supports WebAssembly. Be sure to check the compatibility of your target browsers.
-
-## Acknowledgments
-Essentia.js - Thanks to the Essentia.js team for providing the audio analysis capabilities! 
