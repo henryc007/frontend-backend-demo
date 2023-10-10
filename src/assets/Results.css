@@ -1,8 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+@import './fonts.css';
 
 .results-page-container {
   display: flex;
