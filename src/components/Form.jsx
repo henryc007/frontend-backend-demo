@@ -1,9 +1,8 @@
 import {React, useState, useCallback} from 'react';
-import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import { useDropzone } from "react-dropzone";
-import {Audio} from 'react-loader-spinner';
 import { toast } from "react-toastify";
+import LoadSpinner from './LoadSpinner';
 
 
  // displays warning and error messages
@@ -28,8 +27,7 @@ const notify = (message, type) => {
   });
 };
 
-const Form = () => {
-  const navigate = useNavigate();
+const Form = ({setShowResults, setResultsData}) => {
   const [formOptions, setFormOptions] = useState({
     keySig: false,
     mode: false,
@@ -79,7 +77,6 @@ const Form = () => {
     });
   };
 
-
   // handles parsing data and transmitting it once a form has been submitted
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -116,7 +113,6 @@ const Form = () => {
       selectedValues.mode = true;
     }
     try {
-
       // sends audio file data to server for further analyzing
       const analyzeData = await axios.post('http://localhost:7000/analyze', formData, {
         headers: {
@@ -132,11 +128,13 @@ const Form = () => {
         };
 
     // navigates to /Results page once infomration from form is analyzed
-    navigate('/Results', {
-      state: {
-        resultsData: dataToSend,
-      },
-    });
+    // navigate('/Results', {
+    //   state: {
+    //     resultsData: dataToSend,
+    //   },
+    // });
+    setShowResults(true)
+    setResultsData(dataToSend)
     } catch (error) {
       console.error('Analyze request error:', error);
       if (error.response) {
@@ -153,16 +151,15 @@ const Form = () => {
   };
 
   return (
-    <div className="form-container">
-      <header>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-      </header>
+    <div className="container-fluid px-1">
     <form onSubmit={handleSubmit}>
+      <div className="row d-flex" style={{fontFamily: 'Bree Serif', fontSize: '16px', marginTop: '-10px'}}>
         <label>
           <input
             type="checkbox"
             checked={formOptions.bpm}
             onChange={(handleBpmChange)}
+            style={{marginRight: '5px'}}
           />
           Beats Per Minute
         </label>
@@ -172,6 +169,7 @@ const Form = () => {
             type="checkbox"
             checked={formOptions.keySig}
             onChange={(handleKeySigChange)}
+            style={{marginRight: '5px'}}
           />
           Key Signature
         </label>
@@ -181,33 +179,38 @@ const Form = () => {
             type="checkbox"
             checked={formOptions.mode}
             onChange={(handleModeChange)}
+            style={{marginRight: '5px'}}
           />
           Mode (Major or Minor key)
         </label>
-        <div {...getRootProps()} id="audio-drop">
+      </div>
+      <div className="row d-flex justify-content-center py-2">
+        <div {...getRootProps()} id="audio-drop" className="">
           <input {...getInputProps()} />
           <span className="material-symbols-outlined" id="dropbox-logo">
             place_item
             </span>
           Drop Audio File Here
         </div>
+      </div>
+      <div className="row" style={{}}>
         {audioFile && (
-          <div className="audio-file-container">
+          <div className="col">
             <b>Selected Audio File:</b> {" "}
             {audioFile.name.length > 31 // adjusts the character count as needed
               ? audioFile.name.substring(0, 31) + "..." // truncates the name if it's too long
               : audioFile.name}
           </div>
         )}
-        <button id='form-submit' type="submit">Submit</button>
+      </div>
+      <div className="row">
+        <div className="col">
+          <button className="btn btn-primary" type="submit" style={{ marginTop: '10px' }}>Submit</button>
+        </div>
+      </div>
     </form>
     {loading && (
-        <div className="loading-spinner">
-          <div id="actual-spinner">
-          <Audio color="#00BFFF" height={120} width={120} />
-          <p className="loading-text">Loading</p>
-          </div>
-        </div>
+      <LoadSpinner/>
       )}
   </div>
   );

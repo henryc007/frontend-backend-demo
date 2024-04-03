@@ -1,77 +1,43 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
-import Form from '../components/Form';
-import ReactModal from 'react-modal';
 import "../assets/HomePage.css"
+import OpeningScreen from '../components/OpeningScreen';
+import NavBar from '../components/NavBar';
+import Results from '../components/Results';
+import $ from 'jquery';
 
 
 const HomePage = () => {
-    const [showForm, setShowForm] = useState(false);
-    // const [showNotes, setShowNotes] =useState(false);
+  const [showResults, setShowResults] = useState(false);
+  const [resultsData, setResultsData] = useState(null);
+
+  useEffect(() => {
+    if (showResults) {
+    // $('.modal').modal('hide'); // Close the modal
+    // $('.modal-backdrop').remove(); // Remove the backdrop
+    $('.modal-backdrop').remove();
+    }
+    
+  }, [showResults]);
   
-    const handleButtonClick = () => {
-        setShowForm(true);
-    };
-
-    const renderNotes1 = () => {
-      if (!showForm) {
-        return (
-          <div className="muzieknootjes">
-            <div id="noot-1">&#9835; &#9833;</div>
-            <div id="noot-2">&#9833;</div>
-            <div id="noot-3">&#9839; &#9834;</div>
-            <div id="noot-4">&#9834;</div>
-          </div>
-        );
-      }
-      return null; // Return null when showForm is true to hide the notes
-    };    
-
-const renderNotes2 = () => {
-  if (!showForm) {
-    return (
-      <div className="notes-container">
-        <div id="noot-5">&#9835; &#9833;</div>
-        <div id="noot-6">&#9833;</div>
-        <div id="noot-7">&#9839; &#9834;</div>
-        <div id="noot-8">&#9834;</div>
+  return (
+    <>
+    <div className="container-fluid" style={{
+      background: 'linear-gradient(to left, #22A699 60%, #F2BE22 85%, #F29727 95%, #F24C3D 100%)',
+      height: '100vh',
+      width: "100%"
+    }}>
+      <NavBar/>
+      <div id="uicontainer" className="card shadow" style={{backgroundColor: "#EADACB", borderRadius: '30px'}}>
+        {!showResults ? (
+          <OpeningScreen setShowResults={setShowResults} setResultsData={setResultsData}/>
+        ) : (
+          <Results resultsData={resultsData} setShowResults={setShowResults}/>
+        )}
       </div>
-    );
-  }
-  return null; // Return null when showForm is true to hide the notes
-};    
-
-  
-    return (
-      <div className="ui-container">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-        <div className="homepage-container">
-          <h2 id='descrip-header'>Discover The Groove</h2>
-            {renderNotes1()}
-          <div className="descrip-container">
-            <p id='descrip'> Find the beats per minute, key signature, and mode of your favorite songs. Choose your preferences, upload a song, and get instant results!</p>
-          </div>
-            <div className='button-container'>
-              <button id='start-here' onClick={handleButtonClick}><b>Start Here</b></button>
-              {renderNotes2()}
-              <hr id='horz-line'></hr>
-            </div>
-            <ReactModal 
-            isOpen={showForm}
-            contentLabel="Form Modal"
-            className="custom-modal"
-            overlayClassName="custom-overlay"
-            onRequestClose={() => setShowForm(false)}
-            shouldCloseOnOverlayClick={false}
-            >
-              <button onClick={() => setShowForm(false)} className="material-symbols-outlined" id="form-exit">
-                close
-              </button>
-              <Form/>
-            </ReactModal>
-        </div>
-    </div>
-    );
+  </div>
+  </>
+  );
   };
   
 
